@@ -32,7 +32,7 @@ interface SuggestedPrompt {
         <div hlmEmptyMedia variant="default">
           <img
             class="me-2 aspect-square size-16 dark:hidden"
-            ngSrc="/images/logo/logo.svg"
+            ngSrc="/images/logo/logo.png"
             width="64"
             height="64"
             priority
@@ -40,7 +40,7 @@ interface SuggestedPrompt {
           />
           <img
             class="me-2 hidden aspect-square size-16 dark:inline-block"
-            ngSrc="/images/logo/logo-white.svg"
+            ngSrc="/images/logo/logo-white.png"
             width="64"
             height="64"
             priority

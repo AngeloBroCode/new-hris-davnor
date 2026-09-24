@@ -175,8 +175,7 @@ export class CommandPalette {
   protected readonly isSidebarOpen = computed(() => this._sidebarService.open());
 
   protected readonly navCommands: NavCommand[] = [
-    { key: 'dashboard-1', icon: 'lucideGauge', url: '/dashboard/dashboard-1' },
-    { key: 'dashboard-2', icon: 'lucideLayoutDashboard', url: '/dashboard/dashboard-2' },
+    { key: 'dashboard', icon: 'lucideLayoutDashboard', url: '/dashboard/dashboard-1' },
     { key: 'users', icon: 'lucideUsers', url: '/users' },
     { key: 'calendar', icon: 'lucideCalendarDays', url: '/calendar' },
     { key: 'kanban', icon: 'lucideKanbanSquare', url: '/kanban' },

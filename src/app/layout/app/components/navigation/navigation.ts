@@ -84,15 +84,7 @@ export class Navigation {
     {
       label: 'application',
       items: [
-        {
-          title: 'Dashboard',
-          key: 'dashboard',
-          icon: 'lucideLayoutDashboard',
-          children: [
-            { title: 'Dashboard 1', key: 'dashboard-1', url: '/dashboard/dashboard-1', icon: 'lucideGauge' },
-            { title: 'Dashboard 2', key: 'dashboard-2', url: '/dashboard/dashboard-2', icon: 'lucideLayoutDashboard' },
-          ],
-        },
+        { title: 'Dashboard', key: 'dashboard', url: '/dashboard/dashboard-1', icon: 'lucideLayoutDashboard' },
         { title: 'Users', key: 'users', url: '/users', icon: 'lucideUsers' },
         { title: 'Calendar', key: 'calendar', url: '/calendar', icon: 'lucideCalendarDays' },
         { title: 'Kanban', key: 'kanban', url: '/kanban', icon: 'lucideKanbanSquare' },

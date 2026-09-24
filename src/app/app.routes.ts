@@ -35,7 +35,6 @@ export const routes: Routes = [
           {
             path: 'dashboard-1',
             title: 'dashboard-1',
-            data: { breadcrumb: 'navigation.dashboard-1' },
             loadChildren: () => import('./features/dashboards/dashboard-1/routes'),
           },
           {

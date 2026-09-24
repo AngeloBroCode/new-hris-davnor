@@ -44,18 +44,18 @@ import { HlmButtonImports } from '@spartan-ng/helm/button';
             </div>
 
             <div class="flex max-w-sm flex-col items-center justify-center gap-3">
-              <div class="flex items-center gap-3">
+              <div class="flex items-center">
                 <img
-                  class="aspect-square size-12"
-                  ngSrc="/images/logo/logo-white.svg"
-                  width="32"
-                  height="32"
+                  class="h-10 w-auto object-contain"
+                  ngSrc="/images/logo/logo-white.png"
+                  width="160"
+                  height="40"
                   priority
                   alt=""
                 />
-                <span class="text-xl text-white"> HRIS </span>
+                <span class="text-xl text-white">HRIS</span>
               </div>
-              <p class="text-center text-gray-400 dark:text-white/60">"{{ t('auth.testimonial') }}"</p>
+              <p class="text-center text-gray-400 dark:text-white/60">{{ t('auth.testimonial') }}</p>
             </div>
           </div>
         </div>
