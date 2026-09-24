@@ -10,18 +10,24 @@
       </p>
     </div>
 
-    <form class="flex flex-col gap-4" [formRoot]="loginForm">
+    @if (serverError()) {
+      <div class="bg-destructive/15 text-destructive rounded-md p-3 text-sm font-medium mt-4">
+        {{ serverError() }}
+      </div>
+    }
+
+    <form class="flex flex-col gap-4 mt-4" [formRoot]="loginForm">
       <hlm-field>
-        <hlm-field-label>{{ t('emailLabel') }}</hlm-field-label>
+        <hlm-field-label>{{ t('usernameLabel') }}</hlm-field-label>
         <input
           hlmInput
-          id="email"
-          type="email"
+          id="username"
+          type="text"
           autocomplete="off"
-          [placeholder]="t('emailPlaceholder')"
-          [formField]="loginForm.email"
+          [placeholder]="t('usernamePlaceholder')"
+          [formField]="loginForm.username"
         />
-        @for (error of loginForm.email().errors(); track error.kind) {
+        @for (error of loginForm.username().errors(); track error.kind) {
           <hlm-field-error *transloco="let t">{{ t('validation.' + error.kind) }}</hlm-field-error>
         }
       </hlm-field>

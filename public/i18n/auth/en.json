@@ -1,8 +1,8 @@
 {
     "login": {
         "title": "Login to your account",
-        "emailLabel": "Email",
-        "emailPlaceholder": "name@example.com",
+        "usernameLabel": "Username",
+        "usernamePlaceholder": "Enter your username",
         "passwordLabel": "Password",
         "passwordPlaceholder": "Your password",
         "forgotPassword": "Forgot your password?",

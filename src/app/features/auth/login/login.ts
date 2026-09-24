@@ -1,7 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
-import { email, form, FormField, FormRoot, required } from '@angular/forms/signals';
+import { form, FormField, FormRoot, required } from '@angular/forms/signals';
 import { Router, RouterLink } from '@angular/router';
-import { LOCAL_STORAGE } from '@core/config/tokens';
 import { TranslocoModule } from '@jsverse/transloco';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideEye, lucideEyeOff } from '@ng-icons/lucide';
@@ -15,6 +14,7 @@ import { HlmInputGroupImports } from '@spartan-ng/helm/input-group';
 import { HlmLabelImports } from '@spartan-ng/helm/label';
 import { HlmSpinnerImports } from '@spartan-ng/helm/spinner';
 import { AuthLayout } from '../layout';
+import { AuthService } from '@core/auth/auth-service';
 
 @Component({
   selector: 'adm-login',
@@ -51,24 +51,24 @@ export default class Login {
   // ==========================================
 
   private readonly _router = inject(Router);
-  private readonly _localStorage = inject(LOCAL_STORAGE);
+  private readonly _authService = inject(AuthService);
 
   // ==========================================
   // State
   // ==========================================
 
   protected readonly showPassword = signal(false);
+  protected readonly serverError = signal<string | null>(null);
 
   protected readonly loginModel = signal({
-    email: 'admin@gmail.com',
+    username: 'admin',
     password: 'admin',
   });
 
   protected readonly loginForm = form(
     this.loginModel,
     (schema) => {
-      required(schema.email);
-      email(schema.email);
+      required(schema.username);
       required(schema.password);
     },
     {
@@ -82,8 +82,16 @@ export default class Login {
   // Private Methods
   // ==========================================
 
-  onLogin(): void {
-    this._localStorage?.setItem('token', 'dummy-jwt-token');
-    this._router.navigate(['/dashboard']);
+  async onLogin(): Promise<void> {
+    this.serverError.set(null);
+    const { username, password } = this.loginModel();
+    
+    const result = await this._authService.login(username, password);
+    
+    if (result.success) {
+      this._router.navigate(['/dashboard']);
+    } else {
+      this.serverError.set(result.message || 'Login failed.');
+    }
   }
 }

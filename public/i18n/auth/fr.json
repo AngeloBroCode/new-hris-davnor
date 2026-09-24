@@ -1,8 +1,8 @@
 {
     "login": {
         "title": "Connexion à votre compte",
-        "emailLabel": "Adresse e-mail",
-        "emailPlaceholder": "nom@exemple.com",
+        "usernameLabel": "Nom d'utilisateur",
+        "usernamePlaceholder": "Entrez votre nom d'utilisateur",
         "passwordLabel": "Mot de passe",
         "passwordPlaceholder": "Votre mot de passe",
         "forgotPassword": "Mot de passe oublié ?",

@@ -1,8 +1,8 @@
 {
     "login": {
         "title": "تسجيل الدخول إلى حسابك",
-        "emailLabel": "البريد الإلكتروني",
-        "emailPlaceholder": "name@example.com",
+        "usernameLabel": "اسم المستخدم",
+        "usernamePlaceholder": "أدخل اسم المستخدم",
         "passwordLabel": "كلمة المرور",
         "passwordPlaceholder": "كلمة المرور الخاصة بك",
         "forgotPassword": "هل نسيت كلمة المرور؟",
