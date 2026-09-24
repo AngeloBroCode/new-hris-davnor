@@ -53,7 +53,7 @@ import { HlmButtonImports } from '@spartan-ng/helm/button';
                   priority
                   alt=""
                 />
-                <span class="text-xl text-white"> Acme Inc </span>
+                <span class="text-xl text-white"> HRIS </span>
               </div>
               <p class="text-center text-gray-400 dark:text-white/60">"{{ t('auth.testimonial') }}"</p>
             </div>
@@ -63,4 +63,4 @@ import { HlmButtonImports } from '@spartan-ng/helm/button';
     </div>
   `,
 })
-export class AuthLayout {}
+export class AuthLayout { }
