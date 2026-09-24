@@ -1,0 +1,88 @@
+<div class="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
+  <div class="flex items-center justify-between">
+    <div>
+      <h1 class="text-2xl font-bold tracking-tight">Leave Application</h1>
+      <p class="text-muted-foreground">Submit a new leave application request.</p>
+    </div>
+    <a routerLink="/my-leave" hlmBtn variant="outline">
+      <ng-icon name="lucideArrowLeft" class="mr-2 h-4 w-4" />
+      Back to My Leave
+    </a>
+  </div>
+
+  <div hlmCard>
+    <div hlmCardHeader>
+      <h3 hlmCardTitle>Application Form</h3>
+      <p hlmCardDescription>Please fill in the required fields below.</p>
+    </div>
+    <div hlmCardContent class="grid gap-6">
+      <div class="grid gap-2">
+        <label hlmLabel>Type of Leave</label>
+        <div class="flex flex-col gap-2 mt-1">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="leaveType" value="vacation" class="h-4 w-4 rounded-full border-primary text-primary focus:ring-primary cursor-pointer" checked />
+            <span class="text-sm font-medium">Vacation Leave</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="leaveType" value="sick" class="h-4 w-4 rounded-full border-primary text-primary focus:ring-primary cursor-pointer" />
+            <span class="text-sm font-medium">Sick Leave</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="grid gap-2">
+        <label hlmLabel>Inclusive Dates</label>
+        <div class="flex gap-4">
+          <input hlmInput type="date" class="w-full" />
+          <span class="flex items-center text-muted-foreground">to</span>
+          <input hlmInput type="date" class="w-full" />
+        </div>
+      </div>
+
+      <div class="grid gap-2">
+        <label hlmLabel>Number of Days</label>
+        <input hlmInput type="number" value="1" min="1" class="w-full md:w-1/4" />
+      </div>
+
+      <div class="grid gap-2">
+        <label hlmLabel>Location Where Leave Will Be Spent</label>
+        <div class="flex flex-col gap-2 mt-1">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="location" value="philippines" class="h-4 w-4 rounded-full border-primary text-primary focus:ring-primary cursor-pointer" checked />
+            <span class="text-sm font-medium">Within the Philippines</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="location" value="abroad" class="h-4 w-4 rounded-full border-primary text-primary focus:ring-primary cursor-pointer" />
+            <span class="text-sm font-medium">Abroad/Overseas</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="grid gap-2">
+        <label hlmLabel>Specify Location</label>
+        <input hlmInput type="text" placeholder="e.g., Davao City, Philippines" class="w-full" />
+      </div>
+
+      <div class="grid gap-2">
+        <label hlmLabel>Do you want commutation for this leave?</label>
+        <div class="flex flex-col gap-2 mt-1">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="commutation" value="no" class="h-4 w-4 rounded-full border-primary text-primary focus:ring-primary cursor-pointer" checked />
+            <span class="text-sm font-medium">NO, not this time</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="commutation" value="yes" class="h-4 w-4 rounded-full border-primary text-primary focus:ring-primary cursor-pointer" />
+            <span class="text-sm font-medium">YES, I want commutation</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div hlmCardFooter class="flex justify-end gap-2 border-t pt-4">
+      <button hlmBtn variant="outline">Cancel</button>
+      <button hlmBtn variant="default">
+        Review & Submit
+        <ng-icon name="lucideArrowRight" class="ml-2 h-4 w-4" />
+      </button>
+    </div>
+  </div>
+</div>

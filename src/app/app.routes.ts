@@ -64,6 +64,18 @@ export const routes: Routes = [
         data: { breadcrumb: 'navigation.aiAssistant', preload: true },
         loadChildren: () => import('./features/ai-assistant/routes'),
       },
+      {
+        path: 'my-leave',
+        title: 'myLeave',
+        data: { breadcrumb: 'navigation.myLeave' },
+        loadComponent: () => import('./features/leave/my-leave/my-leave').then(m => m.MyLeave),
+      },
+      {
+        path: 'leave-application',
+        title: 'leaveApplication',
+        data: { breadcrumb: 'navigation.leaveApplication' },
+        loadComponent: () => import('./features/leave/leave-application/leave-application').then(m => m.LeaveApplication),
+      },
     ],
   },
 
