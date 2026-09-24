@@ -91,7 +91,7 @@ export default class TwoStepVerification {
       // Simulate verification
       if (otp === '123456') {
         this._localStorage?.setItem('token', 'dummy-jwt-token');
-        this._router.navigate(['/dashboard/dashboard-1']);
+        this._router.navigate(['/dashboard']);
       } else {
         this.showError.set(true);
         this.otpForm.reset();

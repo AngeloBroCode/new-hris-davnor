@@ -6,18 +6,21 @@ import { DirectionalityService } from '@core/config/directionality-service';
 import { TranslocoModule } from '@jsverse/transloco';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import {
-  lucideAlertTriangle,
-  lucideBarChart3,
+  lucideAward,
+  lucideBookOpen,
   lucideBot,
-  lucideCalendarDays,
   lucideChevronRight,
+  lucideClipboardCheck,
+  lucideClipboardList,
+  lucideClock,
+  lucideDoorOpen,
   lucideFileText,
-  lucideFolderOpen,
-  lucideGauge,
-  lucideKanbanSquare,
+  lucideGraduationCap,
   lucideLayoutDashboard,
-  lucideLock,
+  lucideNotebookPen,
+  lucidePalmtree,
   lucideSettings,
+  lucideTarget,
   lucideUsers,
 } from '@ng-icons/lucide';
 import { HlmCollapsibleImports } from '@spartan-ng/helm/collapsible';
@@ -48,15 +51,18 @@ import { NavUser } from '../user/user';
     provideIcons({
       lucideLayoutDashboard,
       lucideChevronRight,
-      lucideGauge,
-      lucideBarChart3,
+      lucideClipboardList,
+      lucideClock,
       lucideFileText,
-      lucideFolderOpen,
+      lucideDoorOpen,
+      lucidePalmtree,
+      lucideTarget,
+      lucideClipboardCheck,
+      lucideNotebookPen,
+      lucideBookOpen,
+      lucideAward,
       lucideUsers,
-      lucideCalendarDays,
-      lucideKanbanSquare,
-      lucideLock,
-      lucideAlertTriangle,
+      lucideGraduationCap,
       lucideSettings,
       lucideBot,
     }),
@@ -82,37 +88,94 @@ export class Navigation {
 
   protected readonly _navigationGroups: NavGroup[] = [
     {
-      label: 'application',
       items: [
-        { title: 'Dashboard', key: 'dashboard', url: '/dashboard/dashboard-1', icon: 'lucideLayoutDashboard' },
-        { title: 'Users', key: 'users', url: '/users', icon: 'lucideUsers' },
-        { title: 'Calendar', key: 'calendar', url: '/calendar', icon: 'lucideCalendarDays' },
-        { title: 'Kanban', key: 'kanban', url: '/kanban', icon: 'lucideKanbanSquare' },
-        { title: 'File Manager', key: 'fileManager', url: '/file-manager', icon: 'lucideFolderOpen' },
+        { title: 'Dashboard', key: 'dashboard', url: '/dashboard', icon: 'lucideLayoutDashboard' },
       ],
     },
     {
-      label: 'pages',
+      label: 'attendancePages',
       items: [
         {
-          title: 'Authentication',
-          key: 'authentication',
-          icon: 'lucideLock',
+          title: 'DTR',
+          key: 'dtr',
+          icon: 'lucideClipboardList',
           children: [
-            { title: 'Login', key: 'login', url: '/login' },
-            { title: 'Sign Up', key: 'signup', url: '/signup' },
-            { title: 'Reset Password', key: 'resetPassword', url: '/reset-password' },
-            { title: 'Two Step Verification', key: 'twoStepVerification', url: '/two-step-verification' },
+            { title: 'Justification', key: 'justification', url: '/justification' },
+          ],
+        },
+        { title: 'Daily Time Record', key: 'dailyTimeRecord', url: '/daily-time-record', icon: 'lucideClock' },
+        { title: 'Pass Slip', key: 'passSlip', url: '/pass-slip', icon: 'lucideFileText' },
+        { title: 'PTLOS', key: 'ptlos', url: '/permission-to-leave-official-station', icon: 'lucideDoorOpen' },
+        {
+          title: 'Leave',
+          key: 'leave',
+          icon: 'lucidePalmtree',
+          children: [
+            { title: 'My Leave', key: 'myLeave', url: '/my-leave' },
+            { title: 'Application', key: 'leaveApplication', url: '/leave-application' },
+            { title: 'Ledger', key: 'ledger', url: '/ledger' },
+          ],
+        },
+      ],
+    },
+    {
+      label: 'performanceMgmt',
+      items: [
+        {
+          title: 'Major Final Output',
+          key: 'majorFinalOutput',
+          icon: 'lucideTarget',
+          children: [
+            { title: 'Office', key: 'mfoOffice', url: '/mfo/office' },
           ],
         },
         {
-          title: 'Errors',
-          key: 'errors',
-          icon: 'lucideAlertTriangle',
+          title: 'OPCR',
+          key: 'opcr',
+          icon: 'lucideClipboardCheck',
           children: [
-            { title: 'Not Found', key: 'notFound', url: '/404-not-found' },
-            { title: 'Service Unavailable', key: 'serviceUnavailable', url: '/503-service-unavailable' },
-            { title: 'Unauthorized', key: 'unauthorized', url: '/401-unauthorized' },
+            { title: 'Target', key: 'opcrTarget', url: '/opcr/target' },
+            { title: 'Actual', key: 'opcrActual', url: '/opcr/actual' },
+          ],
+        },
+        {
+          title: 'DPCR',
+          key: 'dpcr',
+          icon: 'lucideNotebookPen',
+          children: [
+            { title: 'Target', key: 'dpcrTarget', url: '/dpcr/target' },
+            { title: 'Actual', key: 'dpcrActual', url: '/dpcr/actual' },
+          ],
+        },
+        {
+          title: 'IPCR',
+          key: 'ipcr',
+          icon: 'lucideBookOpen',
+          children: [
+            { title: 'Target', key: 'ipcrTarget', url: '/ipcr/target' },
+            { title: 'Actual', key: 'ipcrActual', url: '/ipcr/actual' },
+          ],
+        },
+      ],
+    },
+    {
+      label: 'hrPages',
+      items: [
+        {
+          title: 'RNR',
+          key: 'rnr',
+          icon: 'lucideAward',
+          children: [
+            { title: 'Nominee', key: 'rnrNominee', url: '/rnr/nominee' },
+            { title: 'Approving', key: 'rnrApproving', url: '/rnr/approving' },
+          ],
+        },
+        {
+          title: 'LND',
+          key: 'lnd',
+          icon: 'lucideGraduationCap',
+          children: [
+            { title: 'Competency', key: 'lndCompetency', url: '/lnd/competency' },
           ],
         },
       ],
@@ -128,3 +191,4 @@ export class Navigation {
 
   protected readonly user = this._authService.currentUser;
 }
+

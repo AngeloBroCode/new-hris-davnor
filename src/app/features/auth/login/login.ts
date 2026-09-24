@@ -84,6 +84,6 @@ export default class Login {
 
   onLogin(): void {
     this._localStorage?.setItem('token', 'dummy-jwt-token');
-    this._router.navigate(['/dashboard/dashboard-1']);
+    this._router.navigate(['/dashboard']);
   }
 }
