@@ -44,7 +44,9 @@
         "dashboard-2": "لوحة التحكم 2",
         "calendar": "التقويم",
         "kanban": "كانبان",
-        "fileManager": "إدارة الملفات"
+        "fileManager": "إدارة الملفات",
+        "myLeave": "My Leave",
+        "leaveApplication": "Leave Application"
     },
     "navigation": {
         "attendancePages": "ATTENDANCE PAGES",

@@ -44,7 +44,9 @@
         "dashboard-2": "Dashboard 2",
         "calendar": "Calendar",
         "kanban": "Kanban",
-        "fileManager": "File Manager"
+        "fileManager": "File Manager",
+        "myLeave": "My Leave",
+        "leaveApplication": "Leave Application"
     },
     "navigation": {
         "attendancePages": "ATTENDANCE PAGES",
