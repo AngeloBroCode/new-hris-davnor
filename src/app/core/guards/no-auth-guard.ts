@@ -1,20 +1,23 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '@core/auth/auth-service';
-import { LOCAL_STORAGE } from '@core/config/tokens';
 
+/**
+ * Prevents already-authenticated users from reaching pages like login/signup.
+ * They are redirected to the dashboard instead.
+ */
 export const noAuthGuard: CanActivateFn = (_route, _state) => {
   const authService = inject(AuthService);
-  const localStorage = inject(LOCAL_STORAGE);
   const router = inject(Router);
 
+  // Already authenticated in memory.
   if (authService.currentUser()) {
-    return router.parseUrl('/');
+    return router.parseUrl('/dashboard');
   }
 
-  const token = localStorage?.getItem('token');
-  if (token) {
-    return router.parseUrl('/');
+  // Check if a session can be restored from storage (e.g. page refresh).
+  if (authService.restoreSession()) {
+    return router.parseUrl('/dashboard');
   }
 
   return true;

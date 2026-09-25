@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { form, FormField, FormRoot, required } from '@angular/forms/signals';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { TranslocoModule } from '@jsverse/transloco';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideEye, lucideEyeOff } from '@ng-icons/lucide';
@@ -51,6 +51,7 @@ export default class Login {
   // ==========================================
 
   private readonly _router = inject(Router);
+  private readonly _route = inject(ActivatedRoute);
   private readonly _authService = inject(AuthService);
 
   // ==========================================
@@ -61,8 +62,8 @@ export default class Login {
   protected readonly serverError = signal<string | null>(null);
 
   protected readonly loginModel = signal({
-    username: 'admin',
-    password: 'admin',
+    username: '',
+    password: '',
   });
 
   protected readonly loginForm = form(
@@ -85,13 +86,23 @@ export default class Login {
   async onLogin(): Promise<void> {
     this.serverError.set(null);
     const { username, password } = this.loginModel();
-    
+
     const result = await this._authService.login(username, password);
-    
+
     if (result.success) {
-      this._router.navigate(['/dashboard']);
+      void this._router.navigateByUrl(this.returnUrl());
     } else {
       this.serverError.set(result.message || 'Login failed.');
     }
+  }
+
+  /**
+   * Where to go after signing in: the page the login guard sent us from, when
+   * it is an in-app path, otherwise the dashboard.
+   */
+  private returnUrl(): string {
+    const target = this._route.snapshot.queryParamMap.get('returnUrl') ?? '';
+    const inApp = target.startsWith('/') && !target.startsWith('//') && !target.startsWith('/\\');
+    return inApp && !target.startsWith('/login') ? target : '/dashboard';
   }
 }

@@ -1,16 +1,19 @@
 import { Routes } from '@angular/router';
 import { provideTranslocoScope } from '@jsverse/transloco';
+import { noAuthGuard } from '@core/guards/no-auth-guard';
 
 export default [
   {
     path: 'login',
     title: 'login',
+    canActivate: [noAuthGuard],
     providers: [provideTranslocoScope('auth')],
     loadComponent: () => import('./login/login'),
   },
   {
     path: 'signup',
     title: 'signup',
+    canActivate: [noAuthGuard],
     providers: [provideTranslocoScope('auth')],
     loadComponent: () => import('./signup/signup'),
   },
