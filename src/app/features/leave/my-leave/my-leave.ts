@@ -8,6 +8,8 @@ import {
   lucideCircleX,
   lucideLoader,
   lucideTrash,
+  lucideChevronLeft,
+  lucideChevronRight,
 } from '@ng-icons/lucide';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
 import { HlmCardImports } from '@spartan-ng/helm/card';
@@ -33,8 +35,26 @@ import { HlmBadgeImports } from '@spartan-ng/helm/badge';
       lucideCircleX,
       lucideLoader,
       lucideTrash,
+      lucideChevronLeft,
+      lucideChevronRight,
     }),
   ],
   templateUrl: './my-leave.html',
 })
-export class MyLeave {}
+export class MyLeave {
+  // Pagination state (mocked)
+  currentPage = 1;
+  totalPages = 5;
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+    }
+  }
+
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
+}
