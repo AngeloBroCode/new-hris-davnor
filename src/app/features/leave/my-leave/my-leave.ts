@@ -15,6 +15,8 @@ import { HlmButtonImports } from '@spartan-ng/helm/button';
 import { HlmCardImports } from '@spartan-ng/helm/card';
 import { HlmTableImports } from '@spartan-ng/helm/table';
 import { HlmBadgeImports } from '@spartan-ng/helm/badge';
+import { BrnAlertDialogImports } from '@spartan-ng/brain/alert-dialog';
+import { HlmAlertDialogImports } from '@spartan-ng/helm/alert-dialog';
 
 @Component({
   selector: 'adm-my-leave',
@@ -26,6 +28,8 @@ import { HlmBadgeImports } from '@spartan-ng/helm/badge';
     HlmCardImports,
     HlmTableImports,
     HlmBadgeImports,
+    BrnAlertDialogImports,
+    HlmAlertDialogImports,
   ],
   providers: [
     provideIcons({
@@ -55,6 +59,16 @@ export class MyLeave {
   prevPage() {
     if (this.currentPage > 1) {
       this.currentPage--;
+    }
+  }
+
+  deleteRecord(ctx?: { close: () => void }) {
+    // Implement delete logic here
+    console.log('Record deleted successfully');
+    
+    // Close the dialog if context is provided
+    if (ctx) {
+      ctx.close();
     }
   }
 }

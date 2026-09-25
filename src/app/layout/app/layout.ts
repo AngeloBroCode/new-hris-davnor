@@ -13,7 +13,7 @@ import { Navigation } from './components/navigation/navigation';
       <adm-back-to-top />
     }
     <adm-navigation>
-      <main hlmSidebarInset class="min-w-0">
+      <main hlmSidebarInset class="min-w-0 overflow-hidden">
         <adm-site-header />
         <div class="min-w-0 flex-1 p-4 sm:p-6">
           <router-outlet />

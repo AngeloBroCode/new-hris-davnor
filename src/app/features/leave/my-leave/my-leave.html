@@ -97,9 +97,23 @@
               </td>
               <td hlmTd>Out Patient</td>
               <td hlmTd>
-                <button hlmBtn variant="destructive" size="sm" class="h-8 px-2">
-                  <ng-icon name="lucideTrash" class="h-4 w-4" />
-                </button>
+                <hlm-alert-dialog>
+                  <button hlmAlertDialogTrigger hlmBtn variant="destructive" size="sm" class="h-8 px-2">
+                    <ng-icon name="lucideTrash" class="h-4 w-4" />
+                  </button>
+                  <hlm-alert-dialog-content *brnAlertDialogContent="let ctx">
+                    <hlm-alert-dialog-header>
+                      <h3 hlmAlertDialogTitle>Delete Leave Record</h3>
+                      <p hlmAlertDialogDescription>
+                        Are you sure you want to delete this leave record? This action cannot be undone.
+                      </p>
+                    </hlm-alert-dialog-header>
+                    <hlm-alert-dialog-footer>
+                      <button hlmBtn variant="outline" hlmAlertDialogCancel (click)="ctx.close()">Cancel</button>
+                      <button hlmBtn variant="destructive" hlmAlertDialogAction (click)="deleteRecord(ctx)">Delete</button>
+                    </hlm-alert-dialog-footer>
+                  </hlm-alert-dialog-content>
+                </hlm-alert-dialog>
               </td>
             </tr>
           </tbody>
