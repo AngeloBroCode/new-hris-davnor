@@ -7,7 +7,7 @@ import { firstValueFrom } from 'rxjs';
 
 // ─── API Configuration ───────────────────────────────────────────────────────
 const API_BASE_URL = 'http://172.16.0.23:8080';
-const LOGIN_ENDPOINT = '/api/Accounts/Login';
+const LOGIN_ENDPOINT = '/api/auth/Login';
 
 // ─── Storage keys ────────────────────────────────────────────────────────────
 const TOKEN_KEY = 'token';
@@ -74,6 +74,7 @@ export class AuthService {
         this._http.post(`${API_BASE_URL}${LOGIN_ENDPOINT}`, {
           username,
           password,
+          isMobile: false,
         })
       );
 
